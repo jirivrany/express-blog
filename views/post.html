@@ -1,0 +1,25 @@
+{% extends "layout.html" %} 
+
+{% block main %}
+<main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <div class="blog-post">
+              <h2 class="blog-post-title">{{ title }}</h2>
+              <p>{{ perex | safe}}</p>
+              <hr>
+              <p>
+                {{ maintext | safe}}
+              </p>
+              <a class="btn btn-warning" href="/posts/edit/{{ id }}" role="button">Edit</a>
+              <a class="btn btn-danger" href="/posts/delete/{{ id }}" role="button">Delete</a>
+          </div>
+          <!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+
+        {% include "aside.html" %}
+
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->               
+{% endblock %}
