@@ -22,7 +22,8 @@ nunjucks.configure('views', {
 });
 
 // mongoose setup
-mongoose.connect('mongodb://localhost/blog');
+let mongoDBUrl = process.env.MONGODB_URI || 'mongodb://localhost/blog';
+mongoose.connect(mongoDBUrl);
 mongoose.Promise = global.Promise;
 
 app.use(logger('dev'));
