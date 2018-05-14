@@ -11,8 +11,10 @@
               <p>
                 {{ maintext | safe}}
               </p>
-              <a class="btn btn-warning" href="/posts/edit/{{ id }}" role="button">Edit</a>
-              <a class="btn btn-danger" href="/posts/delete/{{ id }}" role="button">Delete</a>
+              {% if (session.userId) %}
+                <a class="btn btn-warning" href="/posts/edit/{{ id }}" role="button">Edit</a>
+                <a class="btn btn-danger" href="/posts/delete/{{ id }}" role="button">Delete</a>
+              {% endif %}  
           </div>
           <!-- /.blog-post -->
         </div><!-- /.blog-main -->

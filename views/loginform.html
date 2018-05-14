@@ -1,0 +1,12 @@
+ {% extends "layout.html" %} 
+
+{% block main %}
+
+  <form class="form-signin" role="form" method="post">
+        <h2 class="form-signin-heading">Přihlašte se prosím</h2>
+        <input name="username" type="text" class="form-control" placeholder="Username" required autofocus>
+        <input name="password" type="password" class="form-control" placeholder="Heslo" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Přihlásit</button>
+      </form>
+<!-- /.container -->
+{% endblock %}      

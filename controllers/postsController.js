@@ -1,3 +1,5 @@
+const xssFilters = require('xss-filters');
+
 const Post = require('../models/post');
 const utils = require('../utils');
 
@@ -8,9 +10,9 @@ exports.newPostEditor = function(req, res, next) {
 
 exports.saveNewPost = function(req, res, next) {
     new Post({
-        title: req.body.title,
-        permalink: req.body.permalink,
-        maintext: req.body.maintext
+        title: xssFilters.inHTMLData(req.body.title),
+        permalink: xssFilters.uriPathInHTMLData(req.body.permalink),
+        maintext: xssFilters.inHTMLData(req.body.maintext)
     }).save(function(err, mPost) {
         if (err) {
             return next(err);
@@ -68,7 +70,7 @@ exports.getPost = function(req, res, next) {
 exports.getPostsForHomePage = function(req, res, next) {
 
     Post.find(function(err, mPosts) {
-
+        console.log(mPosts);
         res.render('index.html', {
             big_title: mPosts[0].title,
             big_perex: utils.firstNWords(20, mPosts[0].maintext),
