@@ -21,6 +21,6 @@
     "morgan": "~1.9.0",
     "nodemon": "^1.17.3",
     "nunjucks": "^3.1.2",
-    "xss-filters": "^1.2.7"
+    "xss": "^0.3.8"
   }
 }
