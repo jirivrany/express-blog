@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const post_controller = require('../controllers/postsController');
+const postController = require('../controllers/posts');
 const User = require('../models/user');
 
 /* GET home page. */
-router.get('/', post_controller.getPostsForHomePage);
+router.get('/', postController.getPostsForHomePage);
 
 // GET /login
 router.get('/login', function(req, res, next) {

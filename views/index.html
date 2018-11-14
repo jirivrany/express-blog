@@ -4,7 +4,7 @@
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
     <h1 class="display-4">{{ big_title }}</h1>
-      <p class="lead my-3">{{ big_perex}}</p>
+      <p class="lead my-3">{{ big_perex | safe }}</p>
       <p class="lead mb-0"><a href="{{ big_permalink}}" class="text-white font-weight-bold">... continue reading</a></p>
     </div>
       </div>  
