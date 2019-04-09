@@ -15,6 +15,7 @@ router.get('/login', function(req, res, next) {
 // GET /login
 router.post('/login', function(req, res, next) {
     if (req.body.username && req.body.password) {
+        console.log("username", req.body.username);
         User.authenticate(req.body.username, req.body.password, function (error, user) {
             if (error || !user) {
                 let err = new Error('Wrong username or password.');

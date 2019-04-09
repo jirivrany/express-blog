@@ -18,12 +18,15 @@ let UserSchema = new mongoose.Schema({
 
 // authenticate input against database
 UserSchema.statics.authenticate = function (username, password, callback) {
+  console.log("username in auth", username);
   User.findOne({ username: username })
     .exec(function (err, user) {
+      console.log("found", user);
       if (err) {
         return callback(err)
       } else if (!user) {
         var err = new Error('User not found.');
+        console.log(err);
         err.status = 401;
         return callback(err);
       }
