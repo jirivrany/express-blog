@@ -6,7 +6,7 @@ const logger = require('morgan');
 const nunjucks  = require('nunjucks');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoDbStore = require('connect-mongo');
 const helmet = require('helmet');
 
 var indexRouter = require('./routes/index');
@@ -37,9 +37,9 @@ app.use(session({
   secret: 'work hard',
   resave: true,
   saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: db
-  })
+  store: MongoDbStore.create({
+            mongoUrl: mongoDBUrl
+        })
 }));
 
 // register session in templates

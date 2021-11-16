@@ -9,6 +9,19 @@ exports.newPostEditor = function(req, res, next) {
 
 
 exports.saveNewPost = function(req, res, next) {
+    /*
+    new Post({
+        title: req.body.title,
+        permalink: req.body.permalink,
+        maintext: req.body.maintext
+    }).save(function(err, mPost) {
+        if (err) {
+            return next(err);
+        } else {
+            return res.redirect('/');
+        }
+    });
+    */
     new Post({
         title: xss(req.body.title),
         permalink: xss(req.body.permalink),
@@ -20,6 +33,7 @@ exports.saveNewPost = function(req, res, next) {
             return res.redirect('/');
         }
     });
+    
 };
 
 
